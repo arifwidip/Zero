@@ -52,18 +52,18 @@
     .container                  { width:768px }
 
     /* Base Grid */
-    .col1                       { width: 32px; }
-    .col2                       { width: 96px; }
-    .col3                       { width: 160px; }
-    .col4                       { width: 224px; }
-    .col5                       { width: 288px; }
-    .col6                       { width: 352px; }
-    .col7                       { width: 416px; }
-    .col8                       { width: 480px; }
-    .col9                       { width: 544px; }
-    .col10                      { width: 608px; }
-    .col11                      { width: 672px; }
-    .col12                      { width: 736px; }
+    .col1                       { width: 34px; }
+    .col2                       { width: 98px; }
+    .col3                       { width: 162px; }
+    .col4                       { width: 226px; }
+    .col5                       { width: 290px; }
+    .col6                       { width: 354px; }
+    .col7                       { width: 418px; }
+    .col8                       { width: 482px; }
+    .col9                       { width: 546px; }
+    .col10                      { width: 610px; }
+    .col11                      { width: 674px; }
+    .col12                      { width: 738px; }
 
     /* Parent Grid */
     .columns.col1               { width:64px }
