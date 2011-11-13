@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <!-- Di wordpress themes ganti jquery library ke jquery yang ada di wordpress -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript" src="includes/js/jquery-1.6.1.min.js"></script>
   <script type="text/javascript" src="includes/js/jquery.sooperfish.js"></script>
   <script type="text/javascript" src="includes/js/jquery.flexslider-min.js"></script>
   <script type="text/javascript" src="includes/js/zero.js"></script>
@@ -19,12 +19,12 @@
 <div class="container">
 
 	<!-- Untuk bagian header, beri nama class 'header' -->
-	<div class="header column col12">
+	<div class="header row">
 		<h1>Website Logo</h1>
 	</div><!-- .header -->
 
 	<!-- Untuk bagian navigasi, beri nama class 'navigation' -->
-	<div class="navigation column col12">
+	<div class="navigation row">
 		<ul class="menu">
 			<li><a href="">Menu 1</a></li>
 			<li><a href="">Menu 2</a></li>
@@ -52,7 +52,7 @@
 	gunakan flexslider, flexslider adalah slider yang
 	responsive
 	============================================= -->
-	<div class="flex-container column col12">
+	<div class="flex-container row">
 		<div class="flexslider">
 			<ul class="slides">
 				<li>
@@ -75,10 +75,9 @@
 
 	<!-- ============================================
 	Untuk bagian main content, beri nama class 'main'.
-	Karena main menjadi nested column, maka beri nama
-	class 'columns' bukan 'column'
+	Untuk nested column, beri nama parent column 'row'
 	============================================= -->
-	<div class="main columns col12">
+	<div class="main row">
 		
 		<div class="content column col8">
 			
@@ -108,23 +107,54 @@
 			<!-- Class separator dapat digunakan sebagai pemisah -->
 			<hr class="separator">
 
-			<div class="post">
-				<h2 class="entry-header">This Is Post Title</h2>
-				<div class="entry-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+			<div class="post nested">
+				<h2 class="entry-header">Nested Columns Example</h2>
+				
+				<style type="text/css" media="screen">
+					.nested .column { font-size:12px;background:#ddd; padding:5px 0; text-align:center }
+				</style>
+
+				<div class="row">
+					<div class="column col12">col12</div>
 				</div>
-				<div class="entry-meta">
-					Posted by <a href="#" title="">Colorlabs</a> &bull; 
-					October 11, 2011 &bull; 
-					<a href="#" title="">Uncategorized</a>, <a href="#" title="">Example</a> &bull; 
-					<a href="#" title="">3 Comments</a>
+
+				<div class="row">
+					<div class="column col1">col1</div>
+					<div class="column col10">col10</div>
+					<div class="column col1">col1</div>
 				</div>
-			</div><!-- .post -->
+
+				<div class="row">
+					<div class="column col2">col2</div>
+					<div class="column col8">col8</div>
+					<div class="column col2">col2</div>
+				</div>
+
+				<div class="row">
+					<div class="column col3">col3</div>
+					<div class="column col6">col6</div>
+					<div class="column col3">col3</div>
+				</div>
+
+				<div class="row">
+					<div class="column col6">col6</div>
+					<div class="column col6">col6</div>
+				</div>
+
+				<div class="row">
+					<div class="column col6 centered">col6 centered</div>
+				</div>
+
+				<div class="row">
+					<div class="column col8 centered">col8 centered</div>
+				</div>
+
+				<div class="row">
+					<div class="column col10 centered">col10 centered</div>
+				</div>
+
+			</div>
 			<hr class="separator">
 
 			<!-- Gunakan struktur html ini untuk membuat pagination -->
@@ -165,7 +195,7 @@
 
 	</div><!-- .main -->
 
-	<div class="footer columns col12">
+	<div class="footer row">
 		<p class="column col3">Copyright &copy; 2011 Colorlabs</p>
 		<div class="column col9">
 			<ul class="menu fr">

@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <!-- Di wordpress themes ganti jquery library ke jquery yang ada di wordpress -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript" src="includes/js/jquery-1.6.1.min.js"></script>
   <script type="text/javascript" src="includes/js/jquery.sooperfish.js"></script>
   <script type="text/javascript" src="includes/js/jquery.flexslider-min.js"></script>
   <script type="text/javascript" src="includes/js/zero.js"></script>
@@ -19,12 +19,12 @@
 <div class="container">
 
 	<!-- Untuk bagian header, beri nama class 'header' -->
-	<div class="header column col12">
+	<div class="header row">
 		<h1>Website Logo</h1>
 	</div><!-- .header -->
 
 	<!-- Untuk bagian navigasi, beri nama class 'navigation' -->
-	<div class="navigation column col12">
+	<div class="navigation row">
 		<ul class="menu">
 			<li><a href="">Menu 1</a></li>
 			<li><a href="">Menu 2</a></li>
@@ -49,10 +49,9 @@
 
 	<!-- ============================================
 	Untuk bagian main content, beri nama class 'main'.
-	Karena main menjadi nested column, maka beri nama
-	class 'columns' bukan 'column'
+	Untuk nested column, beri nama parent column 'row'
 	============================================= -->
-	<div class="main columns col12">
+	<div class="main row">
 		
 		<div class="content column col8">
 			
@@ -224,7 +223,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisit.</pre>
 
 	</div><!-- .main -->
 
-	<div class="footer columns col12">
+	<div class="footer row">
 		<p class="column col3">Copyright &copy; 2011 Colorlabs</p>
 		<div class="column col9">
 			<ul class="menu fr">

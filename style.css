@@ -55,20 +55,31 @@ blockquote {
 	font-style:italic;
 	margin-left:40px;
 }
+.alignleft { 
+	float:left;
+	margin:5px 10px 10px 0
+}
+.alignright {
+	float:right;
+	margin:5px 0 10px 10px
+}
+.aligncenter {
+	clear:both;
+	display:block;
+	margin:10px auto
+}
 
 /* Form Element */
 input[type="text"], textarea {
 	padding:5px 2px;
 	border:1px solid #ccc
 }
-textarea {
-	resize:none
-}
+textarea { resize:none }
 input[type="submit"] {
 	color:#fff;
-	border:1px solid #ccc;
-	padding:5px 10px;
+	border:none;
 	cursor:pointer;
+	padding:5px 10px;
 	background:#1982d1;
 }
 
@@ -78,7 +89,7 @@ input[type="submit"] {
 .slides, .flex-control-nav, .flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
 .flexslider {width: 100%; margin: 0; padding: 0; position:relative}
 .flexslider .slides > li {display: none; margin-left:0}
-.flexslider .slides img {max-width: 100%; display: block;}
+.flexslider .slides img {max-width: 100%; max-height:100%; display: block;}
 .flex-pauseplay span {text-transform: capitalize;}
 
 /* Clearfix for the .slides element */
@@ -92,15 +103,9 @@ html[xmlns] .slides {display: block;}
 	margin-bottom:60px;
 	position:relative
 }
-.flexslider .slides > li {
-	position:relative
-}
-.flex-control-nav li { 
-	margin:0
-}
-.flex-control-nav a {
-	cursor:pointer
-}
+.flexslider .slides > li {position:relative }
+.flex-control-nav li {margin:0 }
+.flex-control-nav a {cursor:pointer }
 .flex-caption {
 	width: 96%; 
 	padding: 2%; 
@@ -248,15 +253,31 @@ ul.sf-menu ul ul ul li:hover ul ul,ul.sf-menu ul ul ul li:focus ul ul,ul.sf-menu
 	padding-left:5px
 }
 
+/* #Pagination
+================================================== */
+.pagination {
+	clear:both;
+	margin:30px 0 0
+}
+.pagination a, .pagination span {
+	color:#000;
+	padding:5px 10px;
+	margin-left:10px;
+	border:1px solid #ddd
+}
+.pagination a:hover, .pagination span {
+	background:#ccc;
+	text-decoration:none
+}
+.pagination.fl a, .pagination.fl span {
+	margin-left:0;
+	margin-right:10px
+}
 
 /* #Comment List & Comment Form
 ================================================== */
-.commentlist, .commentlist .children {
-	list-style:none
-}
-.commentlist .children {
-	margin:0 0 0 40px
-}
+.commentlist, .commentlist .children {list-style:none }
+.commentlist .children {margin:0 0 0 40px }
 .commentlist li {
 	margin-left:0;
 	overflow:hidden
