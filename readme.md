@@ -59,6 +59,7 @@ Element yang memiliki nested element, harus di beri class row, contoh:
 ```
 
 zero pun dapat digunakan untuk nesting banyak element, contoh:
+
 ```html
 <div class="row">
 	<div class="column col6">
