@@ -1,0 +1,12 @@
+// Grid
+// Grid System 
+// -------------------------------------------------------------------
+
+// Desktop top Tablet Grid
+@include fluidGridSystem-generate(12, $fluidGridColumnWidth, $fluidGridGutterWidth);
+
+.column.alpha {
+  clear: left;
+  margin-left: 0;
+}
+

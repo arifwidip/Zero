@@ -17,9 +17,9 @@ Struktur direktori zero mengikuti struktur direktori worpress theme colorlabs.
 Ini dilakukan untuk mempermudah workflow.
 
 	/root
-	- index.html
-	- single.html
+	- sample.html
 	- images
+	- sass Sass source code
 	- includes
 	`-- css
 	  `-- semua library css kecuali style.css disimpan di sini 

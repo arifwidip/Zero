@@ -1,13 +1,3 @@
-/*  
-Theme Name: 
-Theme URI: 
-Description: 
-Author: ColorLabs & Company
-Author URI: http://colorlabsproject.com
-Version: 1.0.0
-Tags: 
-*/
-/* ---------------------------------------------------------------- */
 /* 
  * WordPress formatted content
  * Provided from WYSIWYG Editor Styles
@@ -17,26 +7,20 @@ Tags:
 .bypostauthor {
   position: static;
 }
-
 .entry-content img {
   margin: 0.5em 0 1.5em 0;
 }
-
 .alignleft,
 img.alignleft {
-  display: inline;
-  float: left;
+  @include float(left);
   margin-right: 1.5em;
 }
-
-.alignright,
+.alignright, 
 img.alignright {
-  display: inline;
-  float: right;
+  @include float(right);
   margin-left: 1.5em;
 }
-
-.aligncenter,
+.aligncenter, 
 img.aligncenter {
   display: block;
   text-align: center;
@@ -44,47 +28,41 @@ img.aligncenter {
   margin-left: auto;
   clear: both;
 }
-
-.alignnone,
+.alignnone, 
 img.alignnone {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 .wp-caption {
   margin-bottom: 1.5em;
   padding-top: 5px;
+  img {
+    border: 0 none;
+    padding: 0;
+    margin: 0 auto;
+  }
+  a, img {
+    display: block;
+  }
 }
-.wp-caption img {
-  border: 0 none;
-  padding: 0;
-  margin: 0 auto;
-}
-.wp-caption a, .wp-caption img {
-  display: block;
-}
-
 .wp-caption a:hover {
-  border-bottom-color: #0088cc;
+  border-bottom-color: $linkColor;
 }
-
 .wp-caption-text {
   line-height: 1.5;
   font-size: 12px;
   margin: 12px 0 0 0;
   color: #666;
   position: relative;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $sansFontFamily;
 }
-
 .wp-smiley {
   margin: 0 !important;
   max-height: 1em;
 }
-
 .sticky,
 .gallery-caption,
 .bypostauthor {
-  position: static;
+  position: static
 }

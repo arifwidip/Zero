@@ -1,0 +1,112 @@
+// Variables
+// Variables to customize the look and feel
+// ----------------------------------------
+
+
+// Grays
+// -------------------------
+$black:                 #000 !default;
+$grayDarker:            #222 !default;
+$grayDark:              #333 !default;
+$gray:                  #555 !default;
+$grayLight:             #999 !default;
+$grayLighter:           #eee !default;
+$white:                 #fff !default;
+
+
+// Accent colors
+// -------------------------
+$blue:                  #049cdb !default;
+$blueDark:              #0064cd !default;
+$green:                 #46a546 !default;
+$red:                   #9d261d !default;
+$yellow:                #ffc40d !default;
+$orange:                #f89406 !default;
+$pink:                  #c3325f !default;
+$purple:                #7a43b6 !default;
+
+
+// Typography
+// -------------------------
+$sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
+$monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace !default;
+
+$baseFontSize:          14px !default;
+$baseFontFamily:        $sansFontFamily !default;
+$baseLineHeight:        20px !default;
+$altFontFamily:         $serifFontFamily !default;
+
+$headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:    bold !default;    // instead of browser default, bold
+$headingsColor:         inherit !default; // empty to use BS default, $textColor
+
+$baseBorderRadius:      3px;
+
+// Tables
+// -------------------------
+$tableBackground:                   transparent !default; // overall background-color
+$tableBackgroundAccent:             #f9f9f9 !default; // for striping
+$tableBackgroundHover:              #f5f5f5 !default; // for hover
+$tableBorder:                       #ddd !default; // table and cell border
+
+
+// Forms
+// -------------------------
+$inputBackground:               $white !default;
+$inputBorder:                   #ccc !default;
+$inputBorderRadius:             $baseBorderRadius !default;
+$inputDisabledBackground:       $grayLighter !default;
+$formActionsBackground:         #f5f5f5 !default;
+$inputHeight:                   $baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
+
+// Hr border color
+// -------------------------
+$hrBorder:                #ebebeb !default;
+$borderColor:             #ccc !default;
+
+
+// Input placeholder text color
+// -------------------------
+$placeholderText:         $grayLight !default;
+
+
+// Links
+// -------------------------
+$linkColor:             #08C !default;
+$linkColorHover:        darken($linkColor, 15%) !default;
+
+
+// Buttons
+// -------------------------
+$btnBackground:                     #343434 !default;
+$btnBackgroundHighlight:            #202020 !default;
+$btnBorder:                         #000 !default;
+
+$btnPrimaryBackground:              #fe0103 !default;
+$btnPrimaryBackgroundHighlight:     #c9000a !default;
+
+
+// Theme Styles
+// -------------------------
+$textColor:             #333 !default;
+$bodyBackground:        #fefefe !default;
+
+// Tooltip
+// -------------------------
+$zindexTooltip:         1030 !default;
+$tooltipColor:            #fff !default;
+$tooltipBackground:       #000 !default;
+$tooltipArrowWidth:       7px !default;
+$tooltipArrowColor:       $tooltipBackground !default;
+
+
+// Grid System
+// -------------------------
+$gridMaxWidth:          978px;
+$gridWidth:             percentage(54px/$gridMaxWidth);
+$gridGutterWidth:       percentage(30px/$gridMaxWidth);
+$gridGutterWidth:       (100% - (5.5*12)) / 11;
+$fluidGridGutterWidth:  $gridGutterWidth;
+$fluidGridColumnWidth:  5.5;

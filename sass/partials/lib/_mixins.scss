@@ -1,0 +1,228 @@
+// Mixins.scss
+// Snippets of reusable CSS to develop faster and keep code readable
+// -----------------------------------------------------------------
+
+
+// UTILITY MIXINS
+// --------------------------------------------------
+
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Webkit-style focus
+// ------------------
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted #333;
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Center-align a block level element
+// ----------------------------------
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// IE7 inline-block
+// ----------------
+@mixin ie7-inline-block() {
+  *display: inline; /* IE7 inline-block hack */
+  *zoom: 1;
+}
+
+// IE7 likes to collapse whitespace on either side of the inline-block elements.
+// Ems because we're attempting to match the width of a space character. Left
+// version is for form buttons, which typically come after other elements, and
+// right version is for icons, which come before. Applying both is ok, but it will
+// mean that space between those elements will be .6em (~2 space characters) in IE7,
+// instead of the 1 space in other browsers.
+@mixin ie7-restore-left-whitespace() {
+  *margin-left: .3em;
+
+  &:first-child {
+    *margin-left: 0;
+  }
+}
+
+@mixin ie7-restore-right-whitespace() {
+  *margin-right: .3em;
+
+  &:last-child {
+    *margin-left: 0;
+  }
+}
+
+// Sizing shortcuts
+// -------------------------
+@mixin size($height: 5px, $width: 5px) {
+  width: $width;
+  height: $height;
+}
+@mixin square($size: 5px) {
+  @include size($size, $size);
+}
+
+// Placeholder text
+// -------------------------
+@mixin placeholder($color: $placeholderText) {
+  :-moz-placeholder {
+    color: $color;
+  }
+  ::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// GRID SYSTEM
+// --------------------------------------------------
+
+// Fluid grid system
+// -------------------------
+@mixin fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns) {
+  width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
+}
+@mixin fluidGridSystem-gridColumn($fluidGridGutterWidth) {
+  float: left;
+  margin-left: $fluidGridGutterWidth;
+}
+// Take these values and mixins, and make 'em do their thang
+@mixin fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth) {
+  .container {
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .row {
+    width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+    position: relative;
+    max-width: $gridMaxWidth;
+    @include clearfix;
+  }
+
+  .column {
+    @include fluidGridSystem-gridColumn($fluidGridGutterWidth);
+  }
+  .column:first-child {
+    margin-left: 0;
+  }
+
+  // Default columns
+  @for $i from 1 through $gridColumns {
+    .col#{$i} { 
+      $columnWidth: ($fluidGridColumnWidth * $i) + ($fluidGridGutterWidth * ($i - 1));
+      @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $i);
+      //&.centered { margin-left: (100- $columnWidth  ) / 2 ; }
+    }
+  }
+}
+
+// Make a Grid
+// -------------------------
+// Use .makeColumn to assign semantic layouts grid system behavior
+@mixin makeColumn($columns: 1) {
+  float: left;
+  margin-left: $fluidGridGutterWidth;
+  @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns);
+}
+
+
+
+// FONTS
+// --------------------------------------------------
+@mixin font-shorthand($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}
+@mixin font-family-monospace {
+  font-family: $monoFontFamily;
+}
+
+
+// BACKGROUNDS
+// --------------------------------------------------
+
+@mixin gradient-vertical($startColor: #555, $endColor: #333) {
+  background-color: mix($startColor, $endColor, 60%);
+  background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+  background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
+  background-image: linear-gradient(top, $startColor, $endColor); // The standard
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$startColor}', endColorstr='#{$endColor}', GradientType=0),$startColor,$endColor; // IE9 and down
+}
+
+// Gradient Bar Colors for buttons and alerts
+@mixin gradientBar($primaryColor, $secondaryColor) {
+  @include gradient-vertical($primaryColor, $secondaryColor);
+  border-color: $secondaryColor $secondaryColor darken($secondaryColor, 15%);
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), 0.15);
+}
+
+// Reset filters for IE
+@mixin reset-filter() {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+// Mixin for generating button backgrounds
+// ---------------------------------------
+@mixin buttonBackground($startColor, $endColor, $color) {
+  color: $color;
+
+  // gradientBar will set the background to a pleasing blend of these, to support IE<=9
+  @include gradientBar($startColor, $endColor);
+  @include reset-filter();
+
+  // in these cases the gradient won't cover the background, so we override
+  &:hover, &:active {
+    color: $color;
+    background-color: $endColor;
+    *background: darken($endColor, 10);
+  }
+
+  // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+  &:active {
+    background-color: darken($endColor, 10%) #{"\9"};
+    @include box-shadow(#{inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)});
+  }
+}
+
+
+// FORMS
+// --------------------------------------------------
+
+// Block level inputs
+@mixin input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;                // Make inputs at least the height of their button counterpart
+  @include box-sizing(border-box); // Makes inputs behave like true block-level elements
+}

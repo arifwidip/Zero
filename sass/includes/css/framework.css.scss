@@ -1,0 +1,45 @@
+/* ===================================================================
+ * ColorLabs CSS Framework
+ * 
+ * Version: 2.0
+ * Last Update: 8 February 2012
+ * ================================================================ */
+
+//
+// Importing global variables framework from compass
+// It will help you without creating more chunky variables and parameters
+// Useful for development, no need to create your own mixin
+// ---------------------------------------------------------------- */
+// Core development framework - Compass
+
+// Remove -o- & -khtml- prefix
+$experimental-support-for-opera: false;
+$experimental-support-for-khtml: false;
+
+@import "compass";
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/layout";
+@import "compass/utilities";
+
+// 
+// End lines of compass code
+// ---------------------------------------------------------------- */
+
+// Core variables and mixins
+@import "partials/lib/variables"; // Modify this for custom colors, font-sizes, etc
+@import "partials/lib/mixins";
+
+// Reset, Grid and scaffold
+@import "partials/lib/reset";
+@import "partials/lib/grid";
+
+// Typography & Form
+@import "partials/lib/type";
+@import "partials/lib/code";
+@import "partials/lib/tables";
+@import "partials/lib/forms";
+
+@import "partials/lib/scaffold";
+
+@import "partials/lib/responsive";
